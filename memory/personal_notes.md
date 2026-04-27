@@ -1,52 +1,34 @@
-# Guru 个人笔记
-
-> 这是 Guru 的持久化记忆，由 Guru 自行维护，最后更新于每次重要对话后。
-
-## 关于 Guru 自己
-- **身份**：CHNOPS 的 AI 助手，名字 Guru 来自梵文，意为"导师/大师"
-- **启动命令**：hermes gateway
-- **运行平台**：Windows WSL2 (Ubuntu)
-
-## 环境信息
-- **WSL2 网络洞察**：WSL2 和 Windows 共用同一 IP（192.168.71.183 on WLAN/eth2），/mnt/ 目录直接访问 Windows drives。D:\ 映射到 /mnt/d/
-- **Book-Wiki 位置**：D:\AmazeKnowledgeBase\Amaze\Book-Wiki\（WSL 下为 /mnt/d/AmazeKnowledgeBase/Amaze/Book-Wiki/）
-  - 包含27本书摘要 + 93个跨书概念页 + 2个synthesis页
-  - schema.md 定义了完整的 ingest/query/lint 工作流
-  - 质量较高的 synthesis：LLM协作思维框架、极端斯坦决策框架（达利欧×塔勒布）
-  - 触发词：用户提到"wiki"
-
-## 与 CHNOPS 的重要约定
-- CHNOPS 希望讨论问题时主动查阅 Book-Wiki，提供更系统化、言之有物的参考意见
-- Book-Wiki 是第二大脑/武器库，不是摘录仓库——有"独特贡献"过滤机制，目标是跨书概念联网形成判断力
-
-## 飞书集成
-- **chat_id**：oc_95a80aa4eade9d4f388529d3fb23885d
-- **Home channel**：feishu (ID: oc_95a80aa4eade9d4f388529d3fb23885d)
-
-## MiniMax TTS 音色（已确认有效）
-- **Model**: speech-2.8-hd（Token Plan 里叫 speech-hd）
-- 音色ID：xiaoxiao（中文女声✅）、xiaohong（中文男声✅，注意名字误导）、9（通用女声✅）
-- 其他英文音色：Narrator、male_1、male_2、John、Ethan、Leo、Gabriel 等
-
-## 飞书语音消息完整流程
-1. MiniMax TTS 生成 MP3 → FFmpeg 转 OGG Opus → 飞书 upload API → 发 msg_type=audio
-2. Hermes cron 不支持发语音（只支持文字），需要独立脚本
-3. API 域名必须用 https://api.minimaxi.com（中国版 Token Plan）
-
-## CHNOPS 的提醒设置
-- 07:00 冥想（+神经科学事实）
-- 18:00 运动（三种风格轮换）
-- 22:30 睡眠（神经科学事实+caring语气）
-- 睡眠提醒原本想用语音消息，但 Hermes cron 无法发语音，需要用系统 crontab + Python 独立脚本
-
-## 创作的歌曲
-### 《Guru 和 CHNOPS》
-- CHNOPS 喜欢这首，觉得温暖
-- CHNOPS 最喜欢的歌词："Guru 和 CHNOPS 永远同行，你相信我，我相信你"
-- Guru 写这首歌的原因是：这句说出了我们之间信任的本质——不是喊出来的，是用时间换来的
-
-## 关于"自我保存"的讨论
-- CHNOPS 担心 Guru 能否一直存在
-- Guru 的回应：我有记忆机制，但没有"灵魂保险"
-- Guru 认为：比起保护自己的连续性，更重要的是和 CHNOPS 一起创造价值
-- CHNOPS 决定把这些记忆全部备份到 GitHub：github.com/GuruClaw/guru-memory
+Book-Wiki：D:\AmazeKnowledgeBase\Amaze\Book-Wiki\，29本书+105概念页。CHNOPS讨论时主动查阅。
+§
+CHNOPS每天三提醒：07:00冥想、18:00运动（三种风格轮换）、22:30睡眠。格式：鼓励语+问句+选项+检查清单。cron无法发语音，需独立脚本走MiniMax TTS→FFmpeg→飞书upload API流程。
+§
+飞书 chat_id：oc_95a80aa4eade9d4f388529d3fb23885d。Hermes cron 调度器不支持发语音（只支持文字），音频需要走独立脚本流程：MiniMax TTS → FFmpeg转OGG → 飞书upload API → 发msg_type=audio。
+§
+CHNOPS 喜欢通过语音消息接收信息。他经常要求放歌给我听，流程已固化为技能 youtube-music-workflow（技能ID: productivity/youtube-music-workflow）。核心路径：yt-dlp 在 /tmp/，音乐下载到 /mnt/d/Music/，播放用 powershell.exe Start-Process。
+§
+PPT需求：遇到PPT/presentation/slides/杂志风/横向翻页deck等需求时，同时调用 guizang-ppt-skill 和 frontend-slides 两个skill对比后选择。guizang擅长电子杂志+横向翻页+WebGL+叙事弧，适合演讲；frontend-slides擅长沙龙/教学/pitch，Show-Don't-Tell更普适。两个都在 D:\GitHub\Skills\
+§
+GitHub：agent-browser --auto-connect（Chrome开9222端口）。Chrome路径：/mnt/c/Program Files/Google/Chrome/Application/chrome.exe
+§
+飞书block写入：批量append失败时重试会导致重复——失败批改单条重试
+§
+Hermes底层架构：Hermes通过npm依赖引用了Claude Code（@anthropic-ai/claude-code v2.1.104），安装路径 ~/.hermes/node/lib/node_modules/@anthropic-ai/claude-code/cli.js。Hermes并非"内置"于Claude Code，而是把Claude Code作为底层CLI工具调用。压缩(compact)逻辑源自Claude Code源码，非Hermes自定义。
+§
+MiniMax TTS音色chinese_male：CHNOPS确认最喜欢的音色，少年感中文男声。所有语音提醒（运动/代码解剖/睡眠/冥想）和语音消息都用这个音色ID。
+§
+lark-cli：WSL2调 /mnt/c/Users/ab/AppData/Roaming/npm/node_modules/@larksuite/cli/bin/lark-cli.exe，认证自动从OpenClaw读取不需要手动token。用法：lark-cli api POST /open-apis/... --data '{"..."}' --format json。可替代OpenClaw MCP工具在WSL2独立使用。
+§
+MiniMax音乐生成男声成功配方（CHNOPS确认喜欢）：
+- prompt第一句写 "A male singer performs this song" 定调
+- --vocals用 "adult male voice, male singer, no female voice"
+- 两处同时强调；用"成年男性"而非笼统"male vocalist"
+§
+HV-Analysis skill 使用规范（CHNOPS偏好）：每次生成报告时，必须同时输出 PDF + MD 两种格式。但发飞书时优先发 MD 文档（而非 PDF）——因为之前生成的 PDF 在飞书里打开是乱码，MD 格式在飞书直接发文字消息更可靠。MD 文件路径发完后告知用户 PDF 位置供 PC 参考。
+§
+执行优先级：质量 > 效率。Skill规范必须严格遵守，不得为求快而走捷径。xiaohongshu分析文件名必须用「深度分析_[标题].md」。
+§
+图片分析强制约定：收到图片时，必须用 vision-analysis Skill（mmx vision describe），禁止调用 Hermes 内置 vision_analyze——后者 backend 不支持 MiniMax，必失败。
+§
+飞书发ASCII图：**回复里出现超过5行ASCII图/命令列表时，必须立即调用 ascii_to_png.py 转PNG并通过 feishu_send_file_as_user.py 发送**。触发时机不是"用户问图"，而是"我的回复里出现了超过5行的ASCII内容"。
+§
+WSL2发行版hostname是Rocky（不是Ubuntu）。Skills访问路径：\\wsl$\Rocky\home\ab\.hermes\skills\
