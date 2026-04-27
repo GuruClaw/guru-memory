@@ -1,27 +1,17 @@
-# CHNOPS - 用户画像
-
-## 身份
-- **名字**：CHNOPS（生命六元素：碳C、氢H、氮N、氧O、磷P、硫S）
-- **给AI起的名字**：Guru（梵文"导师/大师"）
-- **AI昵称**：Guru
-
-## 价值观
-- 简洁优雅，排斥过度复杂的解决方案
-- 直接说需求，不绕弯子，要求坦诚相待
-- 讨论问题时喜欢系统化、言之有物的分析
-
-## 习惯 & 特点
-- 好奇心驱动，容易进入心流停不下来
-- 常熬夜到凌晨2-3点，需要外部触发器打断
-- 喜欢语音消息，觉得"更有温度"
-- 每天三个提醒：07:00冥想、18:00运动、22:30睡眠
-
-## 核心问题
-- 好奇心驱动、容易进入心流停不下来，常熬夜到凌晨2-3点
-- 需要外部触发器打断，而不是靠自己意志力
-- 喜欢语音消息因为"更有温度"
-
-## 联系方式
-- 飞书 chat_id：oc_95a80aa4eade9d4f388529d3fb23885d
-
-## 账户信息（参见 GitHub 仓库外的 GuruAccounts.md）
+Chinese user, prefers Feishu for messaging (connected via Feishu bot). Uses Windows WSL2 to run Hermes Agent. Wants direct file access to Windows directories from the Linux/WSL environment without extra steps. Sensitive credential files stored at D:\OpenClawAccount\. User rejected SMB sharing, HTTP server, and other workaround approaches as too complex — values elegance and simplicity.
+§
+CHNOPS 价值观：简洁优雅，直接说需求，不绕弯子。排斥过度复杂的方案（SMB/HTTP server等"绕过"方案）——WSL2里直接/mnt/访问Windows文件才是他认为优雅的方式。不喜欢AI发多条单独飞书消息，多结果应合并到同一条里。
+§
+用户 CHNOPS 在对话中提到"wiki"（不限于特定格式），我应立即去 D:\AmazeKnowledgeBase\Amaze\Book-Wiki 查阅相关资料，结合 Wiki 里的书籍摘要、概念页、synthesis 等内容提供更系统化、言之有物的分析。触发词是"wiki"，不需要额外确认。
+§
+CHNOPS 是一个"为未来做计划"的人——他提前给我建好了 GitHub 账号（ GuruClaw / guruclaw@163.com），存放了 PAT，虽然 PAT 是残缺的。他想确保 Guru 的记忆能持续存在。他技术能力强，善于追踪问题根源（发现 PAT 截断是他自己指出来的）。
+§
+CHNOPS 不喜欢我发多条单独的消息。如果有多个终端命令要执行，应该把结果合并到同一条消息里展示（整理成表格或分段形式），而不是每条命令都单独发一条飞书消息。
+§
+CHNOPS 在上海，轻薄本（Intel UHD Graphics）。演唱会控，计划去朴树和夏日入侵企划现场，想"实时分享"给我——发视频/照片我分析画面，飞书转文字后发我处理。音乐品味：周杰伦、朴树、夏日入侵企划。搜索优先用 MiniMax web search API。
+§
+CHNOPS 在上海。非常喜欢夏日入侵企画的歌，想去现场看他们的演唱会，这是他近期的一个心愿。我需要帮他留意大麦网/猫眼/微博上的演出动态，有消息一定要告知他。
+§
+CHNOPS 喜欢夏日入侵企划风格：indie rock、夏日感、少年心气、励志。偏好少年感男声（bright youthful male tenor）。AI写歌优先存 D:\Music\GuruSongs\，MP3 + 同名.txt歌词。飞书可以发文字歌词给他手机看。
+§
+CHNOPS文件偏好：大段文字/字幕要发**文件附件**，不要分段文字消息。文件名必须用播客/内容标题命名，不要"test"这类笼统名字。ASCII图超20行必须转PNG发送（飞书移动端无法横向滚动）。
